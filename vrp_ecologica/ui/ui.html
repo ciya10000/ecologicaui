@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <link href = "ui.css" type = "text/css" rel = "stylesheet">
+</head>
+<body>
+  <div class="container">
+    <span id="emprego"><span class="emprego"></span> </span>
+    <span id="hora"><div class="hora"></div></span>
+
+    <div class="status">
+    <span><img src="https://image.flaticon.com/icons/svg/1653/1653123.svg" id="flat"></i> <span class="fome"></span> <span>
+    <span><img src="https://image.flaticon.com/icons/svg/1468/1468341.svg" id="flat"></i> <span class="sede"> </span></span>
+  </div>
+  <script>
+  $(document).ready(function(){
+      window.addEventListener('message', function(event) {
+        var data = event.data;
+        $(".container").css("display",data.show? "none":"block");
+        var hora = $(".hora");
+        var fome = $(".fome");
+        var sede = $(".sede");
+        var emprego = $(".emprego");
+        hora.text(data.hora);
+        fome.text(data.fome);
+        sede.text(data.sede);
+        emprego.text(data.emprego);
+      });
+  });
+  </script>
+</body>
+</html>
